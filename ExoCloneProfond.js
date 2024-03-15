@@ -8,21 +8,40 @@ function deepClone(value){
     const newObject = {}
 
     Object.entries(value).forEach(([key, value]) => {
-      newObject[key] = deepClone(value)
+      newObject[key] = deepClone(value) 
     });
 
     return newObject;
       
 }
  
-const original = { 
-  n: 1, 
-  subObj: { 
-    s: 'foo' 
-  } 
-}
+// const original = { 
+//   n: 1, 
+//   subObj: { 
+//     s: 'foo' 
+//   } 
+// }
+
+const original = {
+  n: 1,
+  subObj: {
+    s: "foo",
+  },
+  user: {
+    name: "Jean",
+    age: 30,
+    address: {
+      street: "123 rue de la Paix",
+      city: "Paris",
+      coordinates: { lat: 48.8566, lng: 2.3522 },
+    },
+  },
+};
+
  
 const clone = deepClone(original)
+
+console.log(clone);
  
 if ([
   () => clone !== original,
